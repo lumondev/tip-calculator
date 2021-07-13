@@ -42,8 +42,18 @@ header {
   justify-content: center;
 }
 
-input {
+input[type="number"] {
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding-top: 5px;
+  background-color: var(--lightGrayCyan);
+}
+
+input,
+label {
   cursor: pointer;
+  display: block;
   &[type="number"]::-webkit-inner-spin-button,
   &[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -67,33 +77,32 @@ input {
       font-size: 24px;
       .tip {
         text-align: center;
-        cursor: pointer;
-        border-radius: 5px;
-
-        input {
-          font-size: 24px;
-          font-weight: bold;
-          text-align: center;
-          &[type="number"]::placeholder {
-            color: black;
-          }
-          &[type="radio"] {
-            display: none;
+        input[type="radio"] {
+          display: none;
+          &:checked + label {
+            background-color: var(--sCyan);
+            color: var(--xDarkCyan);
           }
         }
 
-        label {
-          pointer-events: none;
-        }
-
-        &:not(.custom) {
+        input[type="number"] {
+          height: 100%;
           width: 100%;
+          border: none;
+          padding-top: 5px;
+          background-color: var(--lightGrayCyan);
+
+          &::placeholder {
+            color: var(--xDarkCyan);
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+          }
+        }
+        label {
+          display: block;
           color: #fff;
           background-color: var(--xDarkCyan);
-
-          &:hover {
-            background-color: var(--sCyan);
-          }
         }
       }
     }
