@@ -1,0 +1,104 @@
+// The designs were created to the following widths:
+
+//  - Mobile: 375px
+//  - Desktop: 1440px
+
+:root {
+  // PRIMARY COLOR
+
+  --sCyan: hsl(172, 67%, 45%);
+
+  // NEUTRAL
+  --xDarkCyan: hsl(183, 100%, 15%);
+  --darkGrayCyan: hsl(186, 14%, 43%);
+  --darkGrayCyan: hsl(184, 14%, 56%);
+  --xlightGrayCyan: hsl(185, 41%, 84%);
+  --lightGrayCyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+
+  // - Font size (form inputs): 24px
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Space Mono", monospace;
+  margin-top: 30px;
+  background: var(--xlightGrayCyan);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  cursor: pointer;
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  background-color: #fff;
+  margin: 30px;
+  border-radius: 20px;
+  &__bill {
+    &-tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 10px;
+      font-size: 24px;
+      .tip {
+        text-align: center;
+        cursor: pointer;
+        border-radius: 5px;
+
+        input {
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
+          &[type="number"]::placeholder {
+            color: black;
+          }
+          &[type="radio"] {
+            display: none;
+          }
+        }
+
+        label {
+          pointer-events: none;
+        }
+
+        &:not(.custom) {
+          width: 100%;
+          color: #fff;
+          background-color: var(--xDarkCyan);
+
+          &:hover {
+            background-color: var(--sCyan);
+          }
+        }
+      }
+    }
+  }
+}
+
+// - Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
+// - Weights: 400, 500, 700
