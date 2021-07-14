@@ -45,12 +45,11 @@
       <section class="calculator__bill">
         <h2 class="calculator__bill-title">Bill</h2>
 
-        <div class="calculator__bill-holder">
-          <div class="bill-icon">
-            <img src="./images/icon-dollar.svg" alt="" />
-            <input type="text" class="bill-input" placeholder="0" />
-          </div>
+        <div class="calculator__bill-icon">
+          <img src="./images/icon-dollar.svg" alt="" />
+          <input type="number" class="bill-input" placeholder="0" />
         </div>
+
         <div class="calculator__bill-tips">
           <h2>Select Tip %</h2>
           <div class="calculator__bill-tips-grid">
@@ -75,14 +74,20 @@
               <label for="tip-five">50%</label>
             </div>
             <div class="tip">
-              <input type="number" name="tip" id="tip-six" placeholder="Custom" />
+              <input
+                type="number"
+                name="tip"
+                id="tip-six"
+                class="custom"
+                placeholder="Custom"
+              />
             </div>
           </div>
         </div>
 
         <div class="calculator__bill-people">
           <h2>Number of People</h2>
-          <div class="bill-icon">
+          <div class="calculator__bill-icon">
             <img src="./images/icon-person.svg" alt="" />
             <input type="number" placeholder="0" />
           </div>
@@ -91,12 +96,18 @@
 
       <section class="calculator__total">
         <div class="calculator__total-element">
-          <h2>Tip Amount</h2>
-          <small>/person </small>
+          <div class="calculator__total-element-title">
+            <h2>Tip Amount</h2>
+            <small>/ person </small>
+          </div>
+          <p>$<span>4.27</span></p>
         </div>
         <div class="calculator__total-element">
-          <h2>Total</h2>
-          <small>/person</small>
+          <div class="calculator__total-element-title">
+            <h2>Total</h2>
+            <small>/ person</small>
+          </div>
+          <p>$<span>32.79</span></p>
         </div>
         <button>RESET</button>
       </section>
