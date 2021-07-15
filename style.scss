@@ -59,7 +59,7 @@ header {
     //Colors
     background-color: var(--xlightGrayCyan);
     color: var(--xDarkCyan);
-    border: none;
+    border: 1px solid transparent;
     border-radius: 5px;
     font-weight: bold;
     font-size: 24px;
@@ -118,6 +118,10 @@ header {
         transform: translateY(60%) translateX(100%);
       }
     }
+
+    &-people {
+      position: relative;
+    }
   }
 
   &__total {
@@ -156,7 +160,25 @@ header {
     outline: none;
     width: 100%;
   }
+
+  .error {
+    border: 1px solid #d9534f !important;
+    &-message {
+      display: block;
+      text-align: right;
+      font-size: 24px;
+      position: absolute;
+      transform: translateY(-150%);
+      width: 100%;
+      font-weight: bold;
+      color: #d9534f;
+    }
+  }
+  .none {
+    display: none;
+  }
 }
+
 // - Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
 // - Weights: 400, 500, 700
 
