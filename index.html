@@ -53,30 +53,61 @@
         <div class="calculator__bill-tips">
           <h2>Select Tip %</h2>
           <div class="calculator__bill-tips-grid">
-            <div class="tip">
-              <input type="radio" name="tip" id="tip-one" />
+            <div>
+              <input
+                type="radio"
+                class="tip"
+                name="tip"
+                id="tip-one"
+                value="5"
+              />
               <label for="tip-one">5%</label>
             </div>
-            <div class="tip">
-              <input type="radio" name="tip" id="tip-two" />
+            <div>
+              <input
+                type="radio"
+                class="tip"
+                name="tip"
+                id="tip-two"
+                value="10"
+              />
               <label for="tip-two">10%</label>
             </div>
-            <div class="tip">
-              <input type="radio" name="tip" id="tip-three" />
+            <div>
+              <input
+                type="radio"
+                class="tip"
+                name="tip"
+                id="tip-three"
+                value="15"
+                checked="true"
+              />
               <label for="tip-three">15%</label>
             </div>
-            <div class="tip">
-              <input type="radio" name="tip" id="tip-four" />
+            <div>
+              <input
+                type="radio"
+                class="tip"
+                name="tip"
+                id="tip-four"
+                value="25"
+              />
               <label for="tip-four">25%</label>
             </div>
-            <div class="tip">
-              <input type="radio" name="tip" id="tip-five" />
+            <div>
+              <input
+                type="radio"
+                class="tip"
+                name="tip"
+                id="tip-five"
+                value="50"
+              />
               <label for="tip-five">50%</label>
             </div>
-            <div class="tip">
+            <div>
               <input
                 type="number"
-                name="tip"
+                name="tip-custom"
                 id="tip-six"
                 class="custom"
                 placeholder="Custom"
@@ -89,25 +120,27 @@
           <h2>Number of People</h2>
           <div class="calculator__bill-icon">
             <img src="./images/icon-person.svg" alt="" />
-            <input type="number" placeholder="0" />
+            <input type="number" class="people-input" placeholder="0" />
           </div>
         </div>
       </section>
 
       <section class="calculator__total">
-        <div class="calculator__total-element">
-          <div class="calculator__total-element-title">
-            <h2>Tip Amount</h2>
-            <small>/ person </small>
+        <div class="calculator__total-labels">
+          <div class="calculator__total-element">
+            <div class="calculator__total-element-title">
+              <h2>Tip Amount</h2>
+              <small>/ person </small>
+            </div>
+            <p>$<span>4.27</span></p>
           </div>
-          <p>$<span>4.27</span></p>
-        </div>
-        <div class="calculator__total-element">
-          <div class="calculator__total-element-title">
-            <h2>Total</h2>
-            <small>/ person</small>
+          <div class="calculator__total-element">
+            <div class="calculator__total-element-title">
+              <h2>Total</h2>
+              <small>/ person</small>
+            </div>
+            <p>$<span>32.79</span></p>
           </div>
-          <p>$<span>32.79</span></p>
         </div>
         <button>RESET</button>
       </section>
@@ -119,5 +152,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div> -->
+    <script src="app.js"></script>
   </body>
 </html>

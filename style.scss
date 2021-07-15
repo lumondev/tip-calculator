@@ -1,13 +1,3 @@
-input,
-label {
-  cursor: pointer;
-  display: block;
-  &[type="number"]::-webkit-inner-spin-button,
-  &[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-}
 // The designs were created to the following widths:
 
 //  - Mobile: 375px
@@ -40,24 +30,24 @@ html {
 }
 
 body {
-  padding: 0;
+  padding: 30px 0;
   margin: 0;
   font-family: "Space Mono", monospace;
-  margin-top: 30px;
   background: var(--xlightGrayCyan);
 }
 
 header {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .calculator {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   background-color: #fff;
   border-radius: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
+  padding: 30px;
   h2 {
     color: var(--darkGrayCyan);
   }
@@ -73,8 +63,9 @@ header {
     border-radius: 5px;
     font-weight: bold;
     font-size: 24px;
-    height: 35px;
     font-family: "Space Mono", monospace;
+    cursor: pointer;
+    outline: none;
     &::placeholder {
       color: var(--xDarkCyan);
     }
@@ -82,6 +73,7 @@ header {
     &:not(.custom) {
       width: 100%;
       text-align: right;
+      padding-right: 10px;
       &::placeholder {
         text-align: right;
       }
@@ -97,8 +89,12 @@ header {
   &__bill {
     &-tips-grid {
       display: grid;
-      grid-template-columns: repeat(2, 200px);
+      grid-template-columns: repeat(2, 50%);
       gap: 10px;
+      input[type="radio"]:checked ~ label {
+        color: var(--xDarkCyan);
+        background-color: var(--sCyan);
+      }
       label {
         display: block;
         text-align: center;
@@ -106,9 +102,10 @@ header {
         color: var(--white);
         font-size: 24px;
         border-radius: 5px;
+        cursor: pointer;
       }
       .custom {
-        width: 200px;
+        width: 100%;
         text-align: center;
         ::placeholder {
           text-align: center;
@@ -118,7 +115,7 @@ header {
     &-icon {
       img {
         position: absolute;
-        transform: translateY(50%) translateX(50%);
+        transform: translateY(60%) translateX(100%);
       }
     }
   }
@@ -126,14 +123,14 @@ header {
   &__total {
     background-color: var(--xDarkCyan);
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
     border-radius: 5px;
     &-element {
       display: flex;
       justify-content: space-between;
       align-items: center;
       h2 {
-        line-height: 5px;
+        line-height: 0px;
         color: var(--white);
       }
       small {
@@ -143,9 +140,37 @@ header {
     p {
       color: var(--sCyan);
       font-weight: bold;
-      font-size: 24px;
+      font-size: 30px;
     }
+  }
+
+  button {
+    background-color: var(--sCyan);
+    border: none;
+    color: var(--xDarkCyan);
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    font-size: 24px;
+    height: 50px;
+    outline: none;
+    width: 100%;
   }
 }
 // - Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
 // - Weights: 400, 500, 700
+
+@media (min-width: 900px) {
+  .calculator {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    width: 70vw;
+    margin: auto;
+
+    &__total {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
