@@ -3,7 +3,8 @@ const d = document,
   $billInput = d.querySelector(".bill-input"),
   $peopleInput = d.querySelector(".people-input"),
   $resetBtn = d.querySelector("button"),
-  $tipCustom = d.querySelector(".custom");
+  $tipCustom = d.querySelector(".custom"),
+  $errorMessage = d.querySelector(".message");
 
 const $amount = d.getElementById("amount"),
   $total = d.getElementById("total");
@@ -13,62 +14,67 @@ const totalObj = {
   tipPercentage: 15,
   people: 0,
   tipPerPerson: 0,
-  tipTotal: 0,
 };
 
 const resetInput = (input) => {
   return (input.value = 0);
 };
 
-const createMessage = (message) => {
-  const $span = d.createElement("span");
-  $span.textContent = message;
-  $span.classList.add("error-message");
-  return $span;
+const calculate = () => {
+  if (totalObj.bill > 0 && totalObj.tipPercentage > 0 && totalObj.people > 0) {
+    let tipTotal, tipPerson, totalPerPerson;
+    tipTotal = (totalObj.bill * totalObj.tipPercentage) / 100;
+    tipPerson = tipTotal / totalObj.people;
+    totalPerPerson = totalObj.bill / totalObj.people + tipPerson;
+
+    $amount.textContent = tipPerson.toFixed(2);
+    $total.textContent = totalPerPerson.toFixed(2);
+  }
 };
 
 $billInput.addEventListener("keyup", (e) => {
-  totalObj.bill = parseInt(e.target.value);
+  totalObj.bill = parseFloat(e.target.value);
+  calculate();
 });
 
 $peopleInput.addEventListener("keyup", (e) => {
-  const $span = createMessage("Can't be zero");
-  if (e.target.value === "") {
+  if (e.target.value === "" || e.target.value == 0) {
     $peopleInput.classList.add("error");
-    $peopleInput.insertAdjacentElement("beforebegin", $span);
+
     $amount.textContent = 0;
     $total.textContent = 0;
+    $errorMessage.textContent = "Can't be zero";
     return;
   }
 
   $peopleInput.classList.remove("error");
-  $span.textContent = "";
-  
-  totalObj.people = +e.target.value;
-  totalObj.tipTotal = (totalObj.bill / totalObj.tipPercentage).toFixed(2);
-  totalObj.tipPerPerson = (totalObj.tipTotal / totalObj.people).toFixed(2);
+  $errorMessage.textContent = "";
 
-  $amount.textContent = totalObj.tipPerPerson;
-  $total.textContent = totalObj.tipTotal;
+  totalObj.people = +e.target.value;
+
+  calculate();
 });
 
 $resetBtn.addEventListener("click", (e) => {
-  // resetInput($billInput);
-  // resetInput($peopleInput);
-  // $tipSelect.forEach((el) => {
-  //   el.value == 15 ? (el.checked = true) : (el.checked = false);
-  // });
-  console.log(totalObj);
+  resetInput($billInput);
+  resetInput($peopleInput);
+  resetInput($amount);
+  resetInput($total);
+  $tipSelect.forEach((el) => {
+    el.value == 15 ? (el.checked = true) : (el.checked = false);
+  });
 });
 
 $tipCustom.addEventListener("keyup", (e) => {
   if (e.target.value !== "") {
     $tipSelect.forEach((el) => (el.checked = false));
-    totalObj.tipPercentage = parseInt(e.target.value);
+    totalObj.tipPercentage = parseFloat(e.target.value);
   }
+  calculate();
 });
 
 d.addEventListener("click", (e) => {
   if (!e.target.matches(".tip")) return;
-  totalObj.tipPercentage = parseInt(e.target.value);
+  totalObj.tipPercentage = parseFloat(e.target.value);
+  calculate();
 });
