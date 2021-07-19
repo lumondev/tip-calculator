@@ -46,6 +46,7 @@ $peopleInput.addEventListener("keyup", (e) => {
     $amount.textContent = 0;
     $total.textContent = 0;
     $errorMessage.textContent = "Can't be zero";
+    totalObj.people = 0;
     return;
   }
 
