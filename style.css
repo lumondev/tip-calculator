@@ -21,20 +21,33 @@ html {
 }
 
 body {
-  padding: 30px 0;
+  padding: 20px 0;
   margin: 0;
   font-family: "Space Mono", monospace;
   background: var(--xlightGrayCyan);
-}
-
-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+}
+
+.header {
+  margin: 50px 0;
+}
+
+.header img {
+  width: 100%;
+  height: auto;
 }
 
 .calculator {
@@ -49,6 +62,7 @@ header {
 
 .calculator h2 {
   color: var(--darkGrayCyan);
+  font-size: 20px;
 }
 
 .calculator input[type="radio"] {
@@ -113,8 +127,8 @@ header {
 .calculator__bill-tips-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (50%)[2];
-      grid-template-columns: repeat(2, 50%);
+  -ms-grid-columns: (32%)[3];
+      grid-template-columns: repeat(3, 32%);
   gap: 10px;
 }
 
@@ -178,8 +192,7 @@ header {
 
 .calculator__bill-people-header .message {
   text-align: right;
-  font-size: 20px;
-  width: 95%;
+  width: 90%;
   font-weight: bold;
   color: #d9534f;
 }
@@ -205,6 +218,7 @@ header {
 
 .calculator__total-element h2 {
   line-height: 0px;
+  font-size: 24px;
   color: var(--white);
 }
 
@@ -221,6 +235,7 @@ header {
 .calculator button {
   background-color: var(--sCyan);
   border: none;
+  border-radius: 5px;
   color: var(--xDarkCyan);
   cursor: pointer;
   display: block;
@@ -236,6 +251,9 @@ header {
 }
 
 @media (min-width: 900px) {
+  .header {
+    margin-bottom: 0px;
+  }
   .calculator {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
@@ -254,6 +272,7 @@ header {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    margin-top: 0px;
   }
 }
 /*# sourceMappingURL=style.css.map */

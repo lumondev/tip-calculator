@@ -4,20 +4,22 @@ const d = document,
   $peopleInput = d.querySelector(".people-input"),
   $resetBtn = d.querySelector("button"),
   $tipCustom = d.querySelector(".custom"),
-  $errorMessage = d.querySelector(".message");
-
-const $amount = d.getElementById("amount"),
+  $errorMessage = d.querySelector(".message"),
+  $amount = d.getElementById("amount"),
   $total = d.getElementById("total");
 
-const totalObj = {
-  bill: 0,
-  tipPercentage: 15,
-  people: 0,
-  tipPerPerson: 0,
+const initialObj = () => {
+  return {
+    bill: 0,
+    tipPercentage: 15,
+    people: 0,
+  };
 };
 
-const resetInput = (input) => {
-  return (input.value = 0);
+let totalObj = initialObj();
+
+const resetInput = (input, prop) => {
+  return (input[prop] = prop === "value" ? "" : "0");
 };
 
 const calculate = () => {
@@ -56,10 +58,12 @@ $peopleInput.addEventListener("keyup", (e) => {
 });
 
 $resetBtn.addEventListener("click", (e) => {
-  resetInput($billInput);
-  resetInput($peopleInput);
-  resetInput($amount);
-  resetInput($total);
+  resetInput($billInput, "value");
+  resetInput($peopleInput, "value");
+  resetInput($amount, "textContent");
+  resetInput($total, "textContent");
+  totalObj = initialObj();
+
   $tipSelect.forEach((el) => {
     el.value == 15 ? (el.checked = true) : (el.checked = false);
   });
@@ -75,6 +79,6 @@ $tipCustom.addEventListener("keyup", (e) => {
 
 d.addEventListener("click", (e) => {
   if (!e.target.matches(".tip")) return;
-  totalObj.tipPercentage = parseFloat(e.target.value);
+  totalObj.tipPercentage = +e.target.value;
   calculate();
 });
