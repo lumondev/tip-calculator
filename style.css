@@ -256,6 +256,9 @@ header {
 }
 
 @media (min-width: 900px) {
+  body {
+    padding-top: 50px;
+  }
   .calculator {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
