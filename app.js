@@ -23,13 +23,9 @@ const resetInput = (input, prop) => {
 };
 
 const calculate = () => {
-  if (
-    totalObj.bill !== "" &&
-    totalObj.tipPercentage !== "" &&
-    totalObj.people > 0
-  ) {
+  if (totalObj.bill !== "" && totalObj.people > 0) {
     let tipTotal, tipPerson, totalPerPerson;
-    tipTotal = (totalObj.bill * totalObj.tipPercentage) / 100;
+    tipTotal = (totalObj.bill * totalObj.tipPercentage || 0) / 100;
     tipPerson = tipTotal / totalObj.people;
     totalPerPerson = totalObj.bill / totalObj.people + tipPerson;
 
@@ -79,7 +75,7 @@ $tipCustom.addEventListener("keyup", (e) => {
   if (e.target.value == "" || e.target.value === 0) {
     totalObj.tipPercentage = 0;
     resetInput($amount, "textContent");
-
+    calculate();
     return;
   }
 
