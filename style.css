@@ -44,7 +44,7 @@ header {
       grid-template-columns: repeat(1, 1fr);
   background-color: #fff;
   border-radius: 15px;
-  padding: 30px;
+  padding: 20px;
 }
 
 .calculator h2 {
