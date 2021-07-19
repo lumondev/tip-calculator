@@ -34,7 +34,7 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .calculator {
@@ -59,13 +59,18 @@ header {
 .calculator input[type="number"] {
   background-color: var(--xlightGrayCyan);
   color: var(--xDarkCyan);
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: 5px;
   font-weight: bold;
   font-size: 24px;
   font-family: "Space Mono", monospace;
   cursor: pointer;
   outline: none;
+}
+
+.calculator input[type="number"]:focus {
+  border: 2px solid var(--sCyan);
+  background-color: var(--white);
 }
 
 .calculator input[type="number"]::-webkit-input-placeholder {
@@ -130,8 +135,15 @@ header {
   background-color: var(--xDarkCyan);
   color: var(--white);
   font-size: 24px;
+  font-weight: bold;
   border-radius: 5px;
+  padding: 5px;
   cursor: pointer;
+}
+
+.calculator__bill-tips-grid label:hover {
+  background-color: var(--xlightGrayCyan);
+  color: var(--xDarkCyan);
 }
 
 .calculator__bill-tips-grid .custom {
@@ -223,6 +235,7 @@ header {
 .calculator button {
   background-color: var(--sCyan);
   border: none;
+  border-radius: 5px;
   color: var(--xDarkCyan);
   cursor: pointer;
   display: block;
@@ -231,6 +244,10 @@ header {
   height: 50px;
   outline: none;
   width: 100%;
+}
+
+.calculator button:hover {
+  background-color: var(--xlightGrayCyan);
 }
 
 .calculator .error {
@@ -245,6 +262,10 @@ header {
     width: 70vw;
     margin: auto;
   }
+  .calculator__bill-tips-grid {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
   .calculator__total {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -256,6 +277,7 @@ header {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    margin: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
