@@ -49,7 +49,7 @@ header {
 
 .calculator h2 {
   color: var(--darkGrayCyan);
-  font-size: 20px;
+  font-size: 12px;
 }
 
 .calculator input[type="radio"] {
@@ -191,7 +191,7 @@ header {
 
 .calculator__bill-people-header .message {
   text-align: right;
-  font-size: 20px;
+  font-size: 12px;
   margin: 0;
   width: 70%;
   font-weight: bold;
@@ -218,7 +218,7 @@ header {
 }
 
 .calculator__total-element h2 {
-  font-size: 24px;
+  font-size: 12px;
   line-height: 0px;
   color: var(--white);
 }
@@ -263,9 +263,15 @@ header {
     width: 70vw;
     margin: auto;
   }
+  .calculator h2 {
+    font-size: 20px;
+  }
   .calculator__bill-tips-grid {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
+  }
+  .calculator__bill .message {
+    font-size: 20px;
   }
   .calculator__total {
     display: -webkit-box;

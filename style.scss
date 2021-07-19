@@ -50,7 +50,7 @@ header {
   padding: 30px;
   h2 {
     color: var(--darkGrayCyan);
-    font-size: 20px;
+    font-size: 12px;
   }
   input[type="radio"] {
     display: none;
@@ -67,7 +67,7 @@ header {
     cursor: pointer;
     outline: none;
 
-    &:focus{
+    &:focus {
       border: 2px solid var(--sCyan);
       background-color: var(--white);
     }
@@ -139,7 +139,7 @@ header {
       }
       .message {
         text-align: right;
-        font-size: 20px;
+        font-size: 12px;
         margin: 0;
         width: 70%;
         font-weight: bold;
@@ -158,7 +158,7 @@ header {
       justify-content: space-between;
       align-items: center;
       h2 {
-        font-size: 24px;
+        font-size: 12px;
         line-height: 0px;
         color: var(--white);
       }
@@ -201,12 +201,18 @@ header {
     gap: 50px;
     width: 70vw;
     margin: auto;
-
+    h2 {
+      font-size: 20px;
+    }
     &__bill {
       &-tips-grid {
         grid-template-columns: repeat(3, 1fr);
       }
+      .message {
+        font-size: 20px;
+      }
     }
+
     &__total {
       display: flex;
       flex-direction: column;
