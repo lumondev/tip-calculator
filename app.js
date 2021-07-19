@@ -23,14 +23,18 @@ const resetInput = (input, prop) => {
 };
 
 const calculate = () => {
-  if (totalObj.bill > 0 && totalObj.tipPercentage > 0 && totalObj.people > 0) {
+  if (
+    totalObj.bill !== "" &&
+    totalObj.tipPercentage !== "" &&
+    totalObj.people > 0
+  ) {
     let tipTotal, tipPerson, totalPerPerson;
     tipTotal = (totalObj.bill * totalObj.tipPercentage) / 100;
     tipPerson = tipTotal / totalObj.people;
     totalPerPerson = totalObj.bill / totalObj.people + tipPerson;
 
-    $amount.textContent = tipPerson.toFixed(2);
-    $total.textContent = totalPerPerson.toFixed(2);
+    $amount.textContent = tipPerson > 0 ? tipPerson.toFixed(2) : 0;
+    $total.textContent = totalPerPerson > 0 ? totalPerPerson.toFixed(2) : 0;
   }
 };
 
@@ -61,6 +65,7 @@ $peopleInput.addEventListener("keyup", (e) => {
 $resetBtn.addEventListener("click", (e) => {
   resetInput($billInput, "value");
   resetInput($peopleInput, "value");
+  resetInput($tipCustom, "value");
   resetInput($amount, "textContent");
   resetInput($total, "textContent");
   totalObj = initialObj();
@@ -71,10 +76,16 @@ $resetBtn.addEventListener("click", (e) => {
 });
 
 $tipCustom.addEventListener("keyup", (e) => {
-  if (e.target.value !== "") {
-    $tipSelect.forEach((el) => (el.checked = false));
-    totalObj.tipPercentage = parseFloat(e.target.value);
+  if (e.target.value == "" || e.target.value === 0) {
+    totalObj.tipPercentage = 0;
+    resetInput($amount, "textContent");
+
+    return;
   }
+
+  $tipSelect.forEach((el) => (el.checked = false));
+  totalObj.tipPercentage = parseFloat(e.target.value);
+
   calculate();
 });
 

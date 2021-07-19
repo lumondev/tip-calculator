@@ -140,6 +140,7 @@ header {
       .message {
         text-align: right;
         font-size: 20px;
+        margin: 0;
         width: 70%;
         font-weight: bold;
         color: #d9534f;
@@ -190,7 +191,7 @@ header {
   }
 
   .error {
-    border: 1px solid #d9534f !important;
+    border: 2px solid #d9534f !important;
   }
 }
 
