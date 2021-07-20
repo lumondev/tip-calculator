@@ -202,8 +202,13 @@ header {
 
 @media (min-width: 900px) {
   body {
-    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
   }
+
   .calculator {
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
