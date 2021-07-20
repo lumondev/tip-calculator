@@ -218,7 +218,7 @@ header {
 }
 
 .calculator__total-element h2 {
-  font-size: 17px;
+  font-size: 20px;
   line-height: 0px;
   color: var(--white);
 }
@@ -230,24 +230,31 @@ header {
 .calculator__total p {
   color: var(--sCyan);
   font-weight: bold;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .calculator button {
   background-color: var(--sCyan);
   border: none;
   border-radius: 5px;
-  color: var(--xDarkCyan);
-  cursor: pointer;
   display: block;
   font-weight: bold;
   font-size: 24px;
   height: 50px;
+  -webkit-filter: brightness(60%);
+          filter: brightness(60%);
   outline: none;
   width: 100%;
 }
 
-.calculator button:hover {
+.calculator button:enabled {
+  color: var(--xDarkCyan);
+  cursor: pointer;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.calculator button:enabled:hover {
   background-color: var(--xlightGrayCyan);
 }
 
@@ -257,13 +264,14 @@ header {
 
 @media (min-width: 900px) {
   body {
-    padding-top: 50px;
+    padding-top: 80px;
   }
   .calculator {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    width: 70vw;
+    width: 900px;
+    height: 420px;
     padding: 30px;
     margin: auto;
   }
@@ -289,6 +297,15 @@ header {
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin: 0;
+  }
+  .calculator__total-element {
+    height: 80px;
+  }
+  .calculator__total-element h2 {
+    font-size: 17px;
+  }
+  .calculator__total-element p {
+    font-size: 44px;
   }
 }
 /*# sourceMappingURL=style.css.map */
