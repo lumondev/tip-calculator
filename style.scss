@@ -158,7 +158,7 @@ header {
       justify-content: space-between;
       align-items: center;
       h2 {
-        font-size: 17px;
+        font-size: 20px;
         line-height: 0px;
         color: var(--white);
       }
@@ -169,7 +169,7 @@ header {
     p {
       color: var(--sCyan);
       font-weight: bold;
-      font-size: 30px;
+      font-size: 40px;
     }
   }
 
@@ -177,14 +177,19 @@ header {
     background-color: var(--sCyan);
     border: none;
     border-radius: 5px;
-    color: var(--xDarkCyan);
-    cursor: pointer;
     display: block;
     font-weight: bold;
     font-size: 24px;
     height: 50px;
+    filter: brightness(60%);
     outline: none;
     width: 100%;
+  }
+
+  button:enabled {
+    color: var(--xDarkCyan);
+    cursor: pointer;
+    filter: brightness(100%);
     &:hover {
       background-color: var(--xlightGrayCyan);
     }
@@ -196,13 +201,19 @@ header {
 }
 
 @media (min-width: 900px) {
-  body{
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-top: 50px;
   }
+
   .calculator {
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    width: 70vw;
+    width: 900px;
+    height: 420px;
     padding: 30px;
     margin: auto;
     h2 {
@@ -222,6 +233,15 @@ header {
       flex-direction: column;
       justify-content: space-between;
       margin: 0;
+      &-element {
+        height: 80px;
+        h2 {
+          font-size: 17px;
+        }
+        p {
+          font-size: 44px;
+        }
+      }
     }
   }
 }

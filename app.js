@@ -1,3 +1,4 @@
+//DOM Elements
 const d = document,
   $tipSelect = d.querySelectorAll(".tip"),
   $billInput = d.querySelector(".bill-input"),
@@ -8,6 +9,7 @@ const d = document,
   $amount = d.getElementById("amount"),
   $total = d.getElementById("total");
 
+//Initial state of our app
 const initialObj = () => {
   return {
     bill: 0,
@@ -19,13 +21,14 @@ const initialObj = () => {
 let totalObj = initialObj();
 
 const resetInput = (input, prop) => {
-  return (input[prop] = prop === "value" ? "" : "0");
+  return (input[prop] = prop === "value" ? "" : "0.00");
 };
 
 const calculate = () => {
   if (totalObj.bill !== "" && totalObj.people > 0) {
+    $resetBtn.disabled = false;
     let tipTotal, tipPerson, totalPerPerson;
-    tipTotal = (totalObj.bill * totalObj.tipPercentage || 0) / 100;
+    tipTotal = (totalObj.bill * totalObj.tipPercentage) / 100;
     tipPerson = tipTotal / totalObj.people;
     totalPerPerson = totalObj.bill / totalObj.people + tipPerson;
 
@@ -64,7 +67,9 @@ $resetBtn.addEventListener("click", (e) => {
   resetInput($tipCustom, "value");
   resetInput($amount, "textContent");
   resetInput($total, "textContent");
+  $resetBtn.disabled = true;
   totalObj = initialObj();
+  calculate();
 
   $tipSelect.forEach((el) => {
     el.value == 15 ? (el.checked = true) : (el.checked = false);
